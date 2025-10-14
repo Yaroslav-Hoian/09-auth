@@ -5,8 +5,8 @@ import css from "./NotePreview.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import Modal from "@/components/Modal/Modal";
-import style from "../../../loading.module.css";
 import { fetchNoteById } from "@/lib/api/clientApi";
+import Loading from "@/app/loading";
 
 const NotePreviewDetails = () => {
   const router = useRouter();
@@ -25,7 +25,7 @@ const NotePreviewDetails = () => {
   });
 
   if (isLoading) {
-    return <p className={style.text}>Loading, please wait...</p>;
+    return <Loading />;
   }
 
   if (error || !note) {
