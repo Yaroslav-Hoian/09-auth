@@ -2,14 +2,14 @@
 
 import css from "./page.module.css";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import fetchNotes from "../../../../lib/api";
-import NoteList from "../../../../components/NoteList/NoteList";
 import { useEffect, useState } from "react";
-import Pagination from "../../../../components/Pagination/Pagination";
-import SearchBox from "../../../../components/SearchBox/SearchBox";
 import { useDebounce } from "use-debounce";
 import toast, { Toaster } from "react-hot-toast";
 import Link from "next/link";
+import SearchBox from "@/components/SearchBox/SearchBox";
+import Pagination from "@/components/Pagination/Pagination";
+import NoteList from "@/components/NoteList/NoteList";
+import fetchNotes from "@/lib/api/clientApi";
 
 const NoteClient = ({ tag }: { tag?: string }) => {
   const [noteWordSearch, setNoteWordSearch] = useState<string>("");

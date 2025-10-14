@@ -3,8 +3,8 @@
 import { useParams, useRouter } from "next/navigation";
 import css from "./NoteDetails.module.css";
 import { useQuery } from "@tanstack/react-query";
-import { fetchNoteById } from "@/lib/api";
-import style from "../../loading.module.css";
+import style from "@/app/loading.module.css";
+import { fetchNoteById } from "@/lib/api/clientApi";
 
 const NoteDetailsClient = () => {
   const router = useRouter();

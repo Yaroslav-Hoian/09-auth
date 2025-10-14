@@ -3,10 +3,10 @@
 import { useParams } from "next/navigation";
 import css from "./NotePreview.module.css";
 import { useQuery } from "@tanstack/react-query";
-import { fetchNoteById } from "@/lib/api";
 import { useRouter } from "next/navigation";
 import Modal from "@/components/Modal/Modal";
 import style from "../../../loading.module.css";
+import { fetchNoteById } from "@/lib/api/clientApi";
 
 const NotePreviewDetails = () => {
   const router = useRouter();
