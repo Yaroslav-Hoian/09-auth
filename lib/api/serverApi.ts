@@ -25,7 +25,7 @@ export const getServerMe = async (): Promise<User> => {
   return data;
 };
 
-async function fetchServerNotes(
+export async function fetchServerNotes(
   search: string,
   page: number,
   tag?: string,
@@ -45,8 +45,6 @@ async function fetchServerNotes(
 
   return request.data;
 }
-
-export default fetchServerNotes;
 
 export async function fetchServerNoteById(id: string): Promise<Note> {
   const cookieStore = await cookies();

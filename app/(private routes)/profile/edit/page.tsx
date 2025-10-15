@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 import { getMe, updateMe } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
+import { useAuthStore } from "@/lib/store/authStore";
 
 const EditProfile = () => {
+  const setUser = useAuthStore((state) => state.setUser);
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const router = useRouter();
@@ -31,8 +33,13 @@ const EditProfile = () => {
     if (userName.length > 24) {
       return toast.error("Username cannot exceed 24 characters");
     }
-    await updateMe({ username: userName });
-    toast.success("Success");
+
+    const updatedUser = await updateMe({ username: userName });
+    if (updatedUser) {
+      setUser(updatedUser);
+      toast.success("Success");
+    }
+
     router.push("/profile");
   };
   return (

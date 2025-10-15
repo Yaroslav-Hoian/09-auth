@@ -9,7 +9,7 @@ import Link from "next/link";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import NoteList from "@/components/NoteList/NoteList";
-import fetchNotes from "@/lib/api/clientApi";
+import { fetchNotes } from "@/lib/api/clientApi";
 
 const NoteClient = ({ tag }: { tag?: string }) => {
   const [noteWordSearch, setNoteWordSearch] = useState<string>("");

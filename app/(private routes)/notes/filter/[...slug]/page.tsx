@@ -5,7 +5,7 @@ import {
 } from "@tanstack/react-query";
 import NoteClient from "./Notes.client";
 import type { Metadata } from "next";
-import fetchServerNotes from "@/lib/api/serverApi";
+import { fetchServerNotes } from "@/lib/api/serverApi";
 
 const debouncedSearch = "";
 const page = 1;

@@ -26,7 +26,7 @@ export type UpdateUserRequest = {
   username: string;
 };
 
-async function fetchNotes(
+export async function fetchNotes(
   search: string,
   page: number,
   tag?: string,
@@ -42,8 +42,6 @@ async function fetchNotes(
 
   return request.data;
 }
-
-export default fetchNotes;
 
 export async function createNote(note: createNoteProps): Promise<Note> {
   const postRequest = await nextServer.post<Note>("/notes", note);
@@ -62,7 +60,7 @@ export async function fetchNoteById(id: string): Promise<Note> {
 }
 
 export async function register(data: UserRegister) {
-  const res = await nextServer.post<UserRegister>("/auth/register", data);
+  const res = await nextServer.post<User>("/auth/register", data);
   return res.data;
 }
 
